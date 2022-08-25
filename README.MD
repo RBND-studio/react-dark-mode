@@ -46,13 +46,11 @@ const Settings = () => {
   const { mode, setMode } = useDarkMode()
 
   return (
-    <>
-      <Button
-        onClick={() => setMode("dark")}
-        active={mode === "dark"}>
-        Dark
-      </Button>
-    </>
+    <Button
+      onClick={() => setMode("dark")}
+      active={mode === "dark"}>
+      Dark
+    </Button>
   )
 }
 ```
@@ -83,7 +81,7 @@ Copy the `noflash.min.js` from `node_modules/@rbnd/react-dark-mode/src/noflash.m
 <html>
   <head>
     <!-- ... -->
-    <script src="/noflash.min.js">
+    <script src="/noflash.min.js"></script>
   </head>
   <body>
   </body>
