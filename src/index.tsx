@@ -1,14 +1,14 @@
 import { createContext, ReactNode, useContext, useEffect } from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
-type SchemeMode = "system" | "dark" | "light";
+export type Mode = "system" | "dark" | "light";
 
-type ISchemeContext = {
-  mode: SchemeMode;
-  setMode: (value: SchemeMode) => void;
+export type IDarkModeContext = {
+  mode: Mode;
+  setMode: (value: Mode) => void;
 };
 
-const SchemeContext = createContext<ISchemeContext>({
+const DarkModeContext = createContext<IDarkModeContext>({
   mode: "system",
   setMode: () => {},
 });
@@ -20,8 +20,8 @@ type Props = {
 const preferDarkQuery = "(prefers-color-scheme: dark)";
 const mediaQueryEventTarget =
   typeof window !== "undefined" ? window.matchMedia(preferDarkQuery) : null;
-export const SchemeProvider = ({ children }: Props) => {
-  const [mode, setMode] = useLocalStorage<SchemeMode>("scheme-mode", "system");
+export const DarkModeProvider = ({ children }: Props) => {
+  const [mode, setMode] = useLocalStorage<Mode>("scheme-mode", "system");
 
   useEffect(() => {
     const listener = (e: MediaQueryListEvent) => {
@@ -38,9 +38,9 @@ export const SchemeProvider = ({ children }: Props) => {
   }, [mode]);
 
   return (
-    <SchemeContext.Provider value={{ mode, setMode }}>
+    <DarkModeContext.Provider value={{ mode, setMode }}>
       {children}
-    </SchemeContext.Provider>
+    </DarkModeContext.Provider>
   );
 };
 
@@ -54,4 +54,4 @@ const setClassOnDocument = (darkTheme: boolean) => {
   element.classList.remove(darkTheme ? classNameLight : classNameDark);
 };
 
-export const useScheme = () => useContext(SchemeContext);
+export const useDarkMode = () => useContext(DarkModeContext);
