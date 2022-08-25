@@ -1,0 +1,37 @@
+{
+  "name": "@rbnd/react-dark-mode",
+  "description": "React hook for switching between light, dark and system color mode.",
+  "keywords": [
+    "dark-mode",
+    "react",
+    "light-mode",
+    "lib"
+  ],
+  "version": "1.0.0",
+  "author": {
+    "name": "Vojtěch Vidra",
+    "email": "vojtechvidra@gmail.com",
+    "url": "https://vojtechvidra.cz"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RBND-studio/react-dark-mode"
+  },
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "tsc": "tsc",
+    "build": "npm run tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.17",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "react": "^18.2.0"
+  }
+}
