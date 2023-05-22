@@ -9,11 +9,8 @@ export default function Document() {
         <Main />
 
         {/* Noflash script */}
-        <Script strategy="beforeInteractive" src="/noflash.min.js" />
-
-        {/* Outside of Next.js codebase you would replace the next/script with following: */}
-        {/* <script src="/noflash.min.js"></script> */}
-        {/* Also make sure to not use either `async` and `defer` <script> HTML attributes */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script src="/noflash.min.js" />
 
         <NextScript />
       </body>
