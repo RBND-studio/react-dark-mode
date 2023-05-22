@@ -6,7 +6,7 @@ Inspired by [use-dark-mode](https://github.com/donavon/use-dark-mode). And after
 
 ## How it works
 
-This package will take care of switching between light, dark and system preference. It will also get rid of the annoying flash between dark-light mode you get when opening a webpage.
+This package will take care of switching between `light`, `dark` and `system` preference. It will also get rid of the annoying flash between dark-light mode you get when opening a webpage. Supports `typescript` out of the box!
 
 ## Example
 
@@ -16,6 +16,11 @@ TODO: Add example app and codebase.
 
 ```bash
 $ npm i @rbnd/react-dark-mode
+# Or Yarn
+$ yarn add @rbnd/react-dark-mode
+# Or pnpm
+$ pnpm add @rbnd/react-dark-mode
+
 ```
 
 ## Usage

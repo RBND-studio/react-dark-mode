@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2016",
+    "target": "es2015",
     "module": "CommonJS",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -10,5 +10,6 @@
     "outDir": "dist",
     "rootDir": "src",
     "jsx": "react-jsx"
-  }
+  },
+  "include": ["src"]
 }
