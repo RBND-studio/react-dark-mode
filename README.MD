@@ -10,7 +10,7 @@ This package will take care of switching between `light`, `dark` and `system` pr
 
 ## Example
 
-TODO: Add example app and codebase.
+[Demo example project](https://rbnd-react-dark-mode.netlify.app), the source code can be found in [example directory](https://github.com/RBND-studio/react-dark-mode/tree/master/example) of this repository.
 
 ## Installation
 
