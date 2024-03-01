@@ -93,6 +93,36 @@ Copy the `noflash.min.js` from `node_modules/@rbnd/react-dark-mode/src/noflash.m
 </html>
 ```
 
+### 5. Set custom styles
+
+It's possible to override the default classnames, so other libraries can be used that handle a different dark-mode classname convention.
+
+```jsx
+import { DarkModeProvider } from "@rbnd/react-dark-mode";
+
+const App = () => {
+  // ...
+
+  return (
+    <DarkModeProvider darkModeClass="dark-theme" lightModeClass="light-theme">
+      {/* Your other components */}
+    </DarkModeProvider>
+  );
+};
+```
+
+Also the classnames used in `noflash.min.js` can be overridden, by using the following data-attrs on html element.
+
+```html
+<html data-dark-mode-classname="dark-theme" data-light-mode-classname="light-theme">
+  <head>
+    <!-- ... -->
+    <script src="/noflash.min.js"></script>
+  </head>
+  <body></body>
+</html>
+```
+
 ---
 
 Created by [rbnd.studio](https://rbnd.studio/). Check out [Atmos](https://atmos.style/) our tool for creating professional color palettes, hey it's free!
