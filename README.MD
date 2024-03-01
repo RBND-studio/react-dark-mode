@@ -28,29 +28,36 @@ $ pnpm add @rbnd/react-dark-mode
 ### 1. Add provider to the root of your app
 
 ```jsx
-import { DarkModeProvider } from "@rbnd/react-dark-mode";
+import { DarkModeProvider } from "@rbnd/react-dark-mode"
 
 const App = () => {
+
   // ...
 
-  return <DarkModeProvider>{/* Your other components */}</DarkModeProvider>;
-};
+  return (
+    <DarkModeProvider>
+      {/* Your other components */}
+    </DarkModeProvider>
+  )
+}
 ```
 
 ### 2. Change modes
 
 ```jsx
-import { useDarkMode } from "@rbnd/react-dark-mode";
+import { useDarkMode } from "@rbnd/react-dark-mode"
 
 const Settings = () => {
-  const { mode, setMode } = useDarkMode();
+  const { mode, setMode } = useDarkMode()
 
   return (
-    <Button onClick={() => setMode("dark")} active={mode === "dark"}>
+    <Button
+      onClick={() => setMode("dark")}
+      active={mode === "dark"}>
       Dark
     </Button>
-  );
-};
+  )
+}
 ```
 
 ### 3. Implement styles
@@ -81,7 +88,8 @@ Copy the `noflash.min.js` from `node_modules/@rbnd/react-dark-mode/src/noflash.m
     <!-- ... -->
     <script src="/noflash.min.js"></script>
   </head>
-  <body></body>
+  <body>
+  </body>
 </html>
 ```
 
@@ -118,7 +126,3 @@ Also the classnames used in `noflash.min.js` can be overridden, by using the fol
 ---
 
 Created by [rbnd.studio](https://rbnd.studio/). Check out [Atmos](https://atmos.style/) our tool for creating professional color palettes, hey it's free!
-
-```
-
-```
