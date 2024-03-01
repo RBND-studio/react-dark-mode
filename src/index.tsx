@@ -14,27 +14,29 @@ const DarkModeContext = createContext<IDarkModeContext>({
 });
 
 type Props = {
+  darkModeClass?: string;
+  lightModeClass?: string;
   children?: ReactNode;
 };
 
 const preferDarkQuery = "(prefers-color-scheme: dark)";
 const mediaQueryEventTarget =
   typeof window !== "undefined" ? window.matchMedia(preferDarkQuery) : null;
-export const DarkModeProvider = ({ children }: Props) => {
+export const DarkModeProvider = ({ children, darkModeClass, lightModeClass }: Props) => {
   const [mode, setMode] = useLocalStorage<Mode>("scheme-mode", "system");
 
   useEffect(() => {
     const listener = (e: MediaQueryListEvent) => {
-      if (mode === "system") setClassOnDocument(e.matches);
+      if (mode === "system") setClassOnDocument(e.matches, darkModeClass, lightModeClass);
     };
     mediaQueryEventTarget?.addEventListener("change", listener);
     return () => mediaQueryEventTarget?.removeEventListener("change", listener);
   }, [mode]);
 
   useEffect(() => {
-    if (mode === "dark") return setClassOnDocument(true);
-    if (mode === "light") return setClassOnDocument(false);
-    setClassOnDocument(window.matchMedia(preferDarkQuery).matches);
+    if (mode === "dark") return setClassOnDocument(true, darkModeClass, lightModeClass);
+    if (mode === "light") return setClassOnDocument(false, darkModeClass, lightModeClass);
+    setClassOnDocument(window.matchMedia(preferDarkQuery).matches, darkModeClass, lightModeClass);
   }, [mode]);
 
   return (
@@ -44,9 +46,9 @@ export const DarkModeProvider = ({ children }: Props) => {
   );
 };
 
-const setClassOnDocument = (darkTheme: boolean) => {
-  const classNameDark = "dark-mode";
-  const classNameLight = "light-mode";
+const setClassOnDocument = (darkTheme: boolean, darkModeClass?: string, lightModeClass?: string) => {
+  const classNameDark = darkModeClass || "dark-mode";
+  const classNameLight = lightModeClass || "light-mode";
   const element =
     typeof window !== "undefined" ? document.querySelector("html") : null;
   if (!element) return;

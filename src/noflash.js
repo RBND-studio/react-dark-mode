@@ -1,6 +1,8 @@
 (function () {
-  var classNameDark = "dark-mode";
-  var classNameLight = "light-mode";
+  var html = document.documentElement;
+  var classNameDark = html.dataset.darkModeClassname || "dark-mode";
+  var classNameLight = html.dataset.lightModeClassname || "light-mode";
+
   function setClassOnDocument(darkMode) {
     document.querySelector("html").classList.add(darkMode ? classNameDark : classNameLight);
     document.querySelector("html").classList.remove(darkMode ? classNameLight : classNameDark);
